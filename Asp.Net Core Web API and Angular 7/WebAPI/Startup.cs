@@ -25,6 +25,7 @@ namespace WebAPI
 
             services.AddDbContext<PaymentdetaildbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -51,6 +52,8 @@ namespace WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
